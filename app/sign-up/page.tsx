@@ -15,6 +15,7 @@ import { SparklesCore } from "@/components/sparkles"
 import Navbar from "@/components/navbar"
 import { supabase } from "@/lib/supabase/client"
 import { GoogleIcon } from "@/components/google-icon"
+import { getSiteUrl } from "@/lib/utils/get-site-url"
 
 export default function SignUpPage() {
   const { t } = useTranslation()
@@ -36,6 +37,8 @@ export default function SignUpPage() {
     const name = formData.get("name") as string
 
     try {
+      const siteUrl = getSiteUrl()
+
       // Sign up with Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
@@ -45,7 +48,7 @@ export default function SignUpPage() {
             username,
             name,
           },
-          emailRedirectTo: `${window.location.origin}/`,
+          emailRedirectTo: `${siteUrl}/`,
         },
       })
 
@@ -84,10 +87,12 @@ export default function SignUpPage() {
     setError("")
 
     try {
+      const siteUrl = getSiteUrl()
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/`,
+          redirectTo: `${siteUrl}/auth/callback`,
         },
       })
 

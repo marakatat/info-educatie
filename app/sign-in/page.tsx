@@ -15,6 +15,7 @@ import { SparklesCore } from "@/components/sparkles"
 import Navbar from "@/components/navbar"
 import { supabase } from "@/lib/supabase/client"
 import { GoogleIcon } from "@/components/google-icon"
+import { getSiteUrl } from "@/lib/utils/get-site-url"
 
 export default function SignInPage() {
   const { t } = useTranslation()
@@ -65,10 +66,12 @@ export default function SignInPage() {
     setError("")
 
     try {
+      const siteUrl = getSiteUrl()
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/`,
+          redirectTo: `${siteUrl}/auth/callback`,
         },
       })
 
