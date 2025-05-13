@@ -48,6 +48,14 @@ const translations: Translations = {
     en: "Terms of Service",
     ro: "Termeni și Condiții",
   },
+  emailVerificationSent: {
+    en: "Email verification has been sent",
+    ro: "Emailul de verificare a fost trimis",
+  },
+  pleaseCheckEmail: {
+    en: "Please check your email to verify your account",
+    ro: "Vă rugăm să verificați emailul pentru a vă verifica contul",
+  },
 
   // Auth
   signIn: {
@@ -239,6 +247,40 @@ const translations: Translations = {
   learnMore: {
     en: "Learn more",
     ro: "Află mai multe",
+  },
+
+  // Learn More Section
+  howItWorks: {
+    en: "How does it work?",
+    ro: "Cum funcționează?",
+  },
+  transformLearning: {
+    en: "Transform learning into a memorable experience with music",
+    ro: "Transformă învățarea într-o experiență memorabilă cu ajutorul muzicii",
+  },
+  uploadNotes: {
+    en: "Upload your notes",
+    ro: "Încarcă notițele tale",
+  },
+  uploadNotesDesc: {
+    en: "Have your own notes? Upload them and let artificial intelligence transform them into memorable lyrics.",
+    ro: "Ai notițe proprii? Încarcă-le și lasă inteligența artificială să le transforme în versuri memorabile.",
+  },
+  listenAndLearn: {
+    en: "Listen and learn",
+    ro: "Ascultă și învață",
+  },
+  listenAndLearnDesc: {
+    en: "Generated melodies are designed to make information memorable and easy to retain.",
+    ro: "Melodiile generate sunt concepute pentru a face informația memorabilă și ușor de reținut.",
+  },
+  uploadButton: {
+    en: "Upload notes",
+    ro: "Încarcă notițe",
+  },
+  examples: {
+    en: "Examples",
+    ro: "Exemple",
   },
 }
 

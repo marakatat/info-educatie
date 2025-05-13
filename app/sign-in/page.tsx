@@ -14,7 +14,7 @@ import { useTranslation } from "@/contexts/translation-context"
 import { SparklesCore } from "@/components/sparkles"
 import Navbar from "@/components/navbar"
 import { supabase } from "@/lib/supabase/client"
-import Image from "next/image"
+import { GoogleIcon } from "@/components/google-icon"
 
 export default function SignInPage() {
   const { t } = useTranslation()
@@ -68,7 +68,7 @@ export default function SignInPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: `${window.location.origin}/`,
         },
       })
 
@@ -117,7 +117,7 @@ export default function SignInPage() {
                 onClick={handleGoogleSignIn}
                 disabled={isGoogleLoading}
               >
-                <Image src="/images/google-logo.png" alt="Google" width={20} height={20} />
+                <GoogleIcon className="w-5 h-5" />
                 <span>{isGoogleLoading ? "..." : t("signInWithGoogle")}</span>
               </Button>
 

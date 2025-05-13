@@ -1,6 +1,7 @@
 "use client"
 import { Bot, Mail } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
+import Link from "next/link"
 
 export function Footer() {
   const { t, LanguageToggle } = useTranslation()
@@ -16,6 +17,9 @@ export function Footer() {
 
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
             <LanguageToggle />
+            <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+              {t("termsOfService")}
+            </Link>
             <a
               href="mailto:contact@romdev.tech"
               className="text-gray-400 hover:text-white text-sm transition-colors flex items-center"

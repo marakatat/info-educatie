@@ -14,7 +14,7 @@ import { useTranslation } from "@/contexts/translation-context"
 import { SparklesCore } from "@/components/sparkles"
 import Navbar from "@/components/navbar"
 import { supabase } from "@/lib/supabase/client"
-import Image from "next/image"
+import { GoogleIcon } from "@/components/google-icon"
 
 export default function SignUpPage() {
   const { t } = useTranslation()
@@ -45,6 +45,7 @@ export default function SignUpPage() {
             username,
             name,
           },
+          emailRedirectTo: `${window.location.origin}/`,
         },
       })
 
@@ -56,10 +57,19 @@ export default function SignUpPage() {
       if (authData.user) {
         toast({
           title: t("signUpSuccess"),
-          description: t("redirectingToProfile"),
+          description: t("emailVerificationSent"),
         })
+
+        // Show a more detailed toast about email verification
+        setTimeout(() => {
+          toast({
+            title: t("pleaseCheckEmail"),
+            description: email,
+            duration: 5000,
+          })
+        }, 1000)
+
         router.push("/")
-        router.refresh()
       }
     } catch (err) {
       console.error("Sign up error:", err)
@@ -77,7 +87,7 @@ export default function SignUpPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: `${window.location.origin}/`,
         },
       })
 
@@ -126,7 +136,7 @@ export default function SignUpPage() {
                 onClick={handleGoogleSignIn}
                 disabled={isGoogleLoading}
               >
-                <Image src="/images/google-logo.png" alt="Google" width={20} height={20} />
+                <GoogleIcon className="w-5 h-5" />
                 <span>{isGoogleLoading ? "..." : t("signInWithGoogle")}</span>
               </Button>
 
