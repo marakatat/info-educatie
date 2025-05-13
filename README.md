@@ -26,19 +26,18 @@ The EduTune platform leverages modern technologies to deliver its functionality:
 ### Backend:
 - **Python**: Core programming language for backend operations.
 - **Chatbot AI Model**: GPT-based model for summarizing and transforming text into rhyming verses.
-- **Flask/Django**: Framework for handling API requests and server functionality.
+- **Openrouter**: Framework for handling API requests and server functionality.
 
 ### Frontend:
-- **React.js**: Interactive user interface for inputting data and managing generated songs.
-- **Bootstrap/TailwindCSS**: For styling and responsive design.
+- **React.js**: Interactive user interface.
+- **TailwindCSS**: For styling and responsive design.
 
 ### Audio Generation:
-- **Text-to-Speech (TTS)**: Converts lyrics into vocals.
-- **MIDI Generation Libraries**: For creating melodies based on AI-composed notes.
+- **SUNO AI**: Cloud music making
+- **Riffusion (Fork)**: Local AI music making (coming soon)
 
 ### Storage and Processing:
-- **Cloud Storage (AWS/GCP/Azure)**: For storing user-uploaded notes and generated songs.
-- **Database (PostgreSQL/MongoDB)**: For managing user data, notes, and songs.
+- **Database (Supabase)**: For managing user data, notes, and songs.
 
 ---
 
