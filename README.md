@@ -1,50 +1,45 @@
-# EduTune: Learn Smarter Through Music 🎵
+## 🚀 Funcționalități
 
-Cu toții știm cât de rapid reținem acea melodie enervantă care rămâne în capul nostru zile la rând. Doar dacă ar fi o metodă prin care să putem învăța ascultând muzică? Prin folosirea noii inteligențe artificiale putem să realizăm melodii. 
-
-Ok, dar cu ce scop dacă materia tot lungă, stufoasă și neinteresantă e? Inteligența artificială ne sare în ajutor DIN NOU! Folosind un model de chatbot în backend, rezumă și transformă în versuri tot ce este important! 
-
-**ASTFEL**, avem toate ingredientele + elementul X care este platforma noastră **EduTune**, care vă prezintă acest produs finit, ușor și rapid de utilizat! Doar trebuie să îi dai clasa și materia pe care vrei să înveți! *(Nu suntem responsabili de posibilele erori)*. Dacă dorești, ai de asemenea opțiunea de a încărca notițele tale (asta dacă nu ai în scris ca egiptenii) și numai de cât vei avea un cântec perfect de ascultat care o să îți rămână în cap de vrei, sau nu...
-
-**ASTFEL**, tu vei avea mereu acele informații pregătite pentru orice moment în care ai avea nevoie de ele. 
-
-### Deci, te-am convins? 🎤🎶
+* **Rezumat AI-powered**: Transformă notițele tale sau materialul furnizat într-versuri de melodii concise și memorabile.
+* **Conținut personalizabil**: Încarcă propriile notițe sau alege dintr-o listă de subiecte și cursuri predefinite.
+* **Compunere muzicală**: Generează automat teme muzicale captivante pentru o învățare mai ușoară.
+* **Platformă prietenoasă cu utilizatorul**: Interfață simplă pentru încărcarea conținutului și ascultarea melodiilor.
 
 ---
 
-## 🚀 Features
-- **AI-Powered Summarization**: Transforms your notes or provided subject material into concise, memorable song lyrics.
-- **Customizable Content**: Upload your own notes or choose from predefined topics and classes.
-- **Music Composition**: Automatically generates catchy tunes for easier learning.
-- **User-Friendly Platform**: Simple interface for both uploading content and listening to songs.
+## 🛠️ Tehnologii utilizate
 
----
-
-## 🛠️ Technologies Used
-The EduTune platform leverages modern technologies to deliver its functionality:
+Platforma EduTune se bazează pe tehnologii moderne pentru a-și livra funcționalitățile:
 
 ### Backend:
-- **Python**: Core programming language for backend operations.
-- **Chatbot AI Model**: GPT-based model for summarizing and transforming text into rhyming verses.
-- **Openrouter**: Framework for handling API requests and server functionality.
+
+* **Python**: Limbajul principal pentru operațiunile pe server.
+* **Model AI**: Model GPT pentru rezumarea și transformarea textului în versuri.
+* **Openrouter**: Cadru pentru gestionarea cererilor API și funcționalităților serverului.
 
 ### Frontend:
-- **React.js**: Interactive user interface.
-- **TailwindCSS**: For styling and responsive design.
 
-### Audio Generation:
-- **SUNO AI**: Cloud music making
-- **Riffusion (Fork)**: Local AI music making (coming soon)
+* **React.js**: Interfață interactivă cu utilizatorul.
+* **TailwindCSS**: Pentru stilizare și design responsive.
 
-### Storage and Processing:
-- **Database (Supabase)**: For managing user data, notes, and songs.
+### Generare audio:
+
+* **SUNO AI**: Soluție cloud pentru compoziție muzicală.
+* **Riffusion (Modificat)**: Soluție locală pentru generare AI de muzică (în curând).
+
+### Stocare și Procesare:
+
+* **Bază de date (Supabase)**: Pentru gestionarea datelor utilizatorilor și melodiilor.
 
 ---
 
-## 📖 Documentation
+## 📖 Documentație
 
-### 1. Setting Up the Project
-1. **Clone the repository**:
+### 1. Configurarea proiectului
+
+1. **Clonarea repository-ului**:
+
    ```bash
    git clone https://github.com/marakatat/info-educatie.git
    cd info-educatie
+   ```
