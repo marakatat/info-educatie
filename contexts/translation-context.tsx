@@ -210,12 +210,61 @@ const translations: Translations = {
     en: "Selected Lyrics:",
     ro: "Versurile Selectate:",
   },
+
+  // Hero
+  heroTitle1: {
+    en: "EduTune.",
+    ro: "EduTune.",
+  },
+  heroTitle2: {
+    en: "Redefine learning!",
+    ro: "Redefinește învățatul!",
+  },
+  heroTitle3: {
+    en: "Learn through music!",
+    ro: "Învață prin muzică!",
+  },
+  heroDescription: {
+    en: "Transform any subject into a memorable tune with the help of artificial intelligence.",
+    ro: "Transformă orice materie într-o melodie memorabilă cu ajutorul inteligenței artificiale.",
+  },
+  inputPlaceholder: {
+    en: "Enter class and subject (e.g., Grade 9, History)",
+    ro: "Introdu clasa și materia (ex: Clasa 9, Istorie)",
+  },
+  start: {
+    en: "Start",
+    ro: "Începe",
+  },
+  learnMore: {
+    en: "Learn more",
+    ro: "Află mai multe",
+  },
+}
+
+// Keywords to highlight in each language
+const highlightKeywords = {
+  en: {
+    artificial: "artificial intelligence",
+    memorable: "memorable",
+    transform: "Transform",
+    music: "music",
+    learn: "learning",
+  },
+  ro: {
+    artificial: "inteligenței artificiale",
+    memorable: "memorabilă",
+    transform: "Transformă",
+    music: "muzică",
+    learn: "învățarea",
+  },
 }
 
 interface TranslationContextType {
   language: Language
   setLanguage: (language: Language) => void
   t: (key: string) => string
+  highlight: (text: string) => React.ReactNode
   LanguageToggle: React.FC
 }
 
@@ -223,6 +272,7 @@ const TranslationContext = createContext<TranslationContextType>({
   language: "ro",
   setLanguage: () => {},
   t: (key) => key,
+  highlight: (text) => text,
   LanguageToggle: () => null,
 })
 
@@ -248,6 +298,22 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
       return key
     }
     return translations[key][language]
+  }
+
+  const highlight = (text: string): React.ReactNode => {
+    let result = text
+    const keywords = highlightKeywords[language]
+
+    Object.values(keywords).forEach((word) => {
+      if (result.includes(word)) {
+        result = result.replace(new RegExp(`(${word})`, "gi"), '<span class="font-bold text-purple-400">$1</span>')
+      }
+    })
+
+    // Make uppercase words bold and colored
+    result = result.replace(/\b([A-Z]+)\b/g, '<span class="font-bold text-purple-400">$1</span>')
+
+    return <span dangerouslySetInnerHTML={{ __html: result }} />
   }
 
   const LanguageToggle: React.FC = () => {
@@ -277,7 +343,7 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
   }
 
   return (
-    <TranslationContext.Provider value={{ language, setLanguage, t, LanguageToggle }}>
+    <TranslationContext.Provider value={{ language, setLanguage, t, highlight, LanguageToggle }}>
       {children}
     </TranslationContext.Provider>
   )

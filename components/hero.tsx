@@ -11,12 +11,10 @@ import { useRouter } from "next/navigation"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { TypingAnimation } from "@/components/typing-animation"
-import { useDebug } from "@/contexts/debug-context"
 
 export default function Hero() {
   const { user } = useAuth()
   const { t, language, highlight } = useTranslation()
-  const { isDebugMode } = useDebug()
   const router = useRouter()
   const [inputValue, setInputValue] = useState("")
 
@@ -25,7 +23,7 @@ export default function Hero() {
   }
 
   const handleGetStarted = () => {
-    if (!inputValue.trim() && !isDebugMode) {
+    if (!inputValue.trim()) {
       toast({
         title: "Câmp gol",
         description: "Te rugăm să introduci clasa și materia pentru a continua.",
@@ -34,14 +32,14 @@ export default function Hero() {
       return
     }
 
-    if (!user && !isDebugMode) {
+    if (!user) {
       // Redirect to sign-up page if user is not logged in
       router.push("/sign-up")
       return
     }
 
-    // If user is logged in or debug mode is on, redirect to the generator page with the query
-    router.push(`/generator?query=${encodeURIComponent(inputValue || "debug-query")}`)
+    // If user is logged in, redirect to the generator page with the query
+    router.push(`/generator?query=${encodeURIComponent(inputValue)}`)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
